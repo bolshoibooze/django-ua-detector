@@ -1,20 +1,33 @@
 
 
-===========
-ua_detector
-============
+Server-side User Agent Detection
+_______________________________
+
 Back in 2013 i was trying to create a responsive news web app,but i hated the idea of having to redirect a sub-domain for the mobile site,e.g 'm.examplesite.com': seemed so 1995.
 
 So i stumbled on a django package (i've long forgotten the original author,sadly) and mashed it up with some elegant views inspired by Nyaruka's nsms-plus.
 
 
-Let's do this :-)
---------------------
+What this app does:
+____________________
+1.Enables you to use a single view for serving pages to all user agents,from mobile to
+  desktop.
+  
+2.Allows creation of a mobile-specific template and another one for tablets and desktop users
+
+So in short you get to keep a unififed code base and make your web app responsive without using bloated javascript solutions :just write the proper media queries in your css
+
+
+Quick Documentation
+_____________________
+
 1. Installation
    
    pip install django-ua-detector
    
    or simply clone this repo
+   
+   git clone https://github.com/bolshoibooze/django-ua-detector.git
    
 1. Add 'ua_detector' to your INSTALLED_APPS ::
    INSTALLED_APPS = (
@@ -28,6 +41,11 @@ Let's do this :-)
    
    
 3. Plug and play with responsive views --- a few use cases are in order:
+
+
+
+View Examples
+____________________
 
    In your views.py file::
    
@@ -106,12 +124,12 @@ Let's do this :-)
               return context
          
 LICENSE
-----------
+_______________
 Free BSD
 Use and abuse for both personal and commercial projects to your heart's desire
 
 P/S:
----------
-There are lots of other apps for making Django responsive (see: https://www.djangopackages.com/grids/g/mobile/), but they require middleware and a bunch of other stuff like templatags inclusion,e.tc,e.t.c....e.t.c.
+_________
+There are lots of other apps for making Django responsive (see: https://www.djangopackages.com/grids/g/mobile/), but they require middleware and a bunch of other settings like template tags inclusion,e.tc,e.t.c....e.t.c.
 
-I prefer plug and play ,simple and clean:-)        
+I think that's kinda over-kill for such a simple problem
